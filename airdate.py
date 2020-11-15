@@ -13,7 +13,7 @@ from pyspark.ml import Pipeline
 from pyspark.sql.window import Window
 import sys
 
-#借用了李丰老师的函数：
+#借用了李丰老师的函数：https://github.com/feng-li/dlsa/blob/master/dlsa/sdummies.py
 def get_sdummies(sdf, dummy_columns, keep_top, replace_with='other'):
     """    Index string columns and group all observations that occur in less then a keep_top% of the rows in sdf per column.
     :param sdf: A pyspark.sql.dataframe.DataFrame
