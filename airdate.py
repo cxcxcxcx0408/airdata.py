@@ -43,7 +43,10 @@ def get_sdummies(sdf, dummy_columns, keep_top, replace_with='other'):
             string_col,
             when((col(string_col).isin(keep_list)),
                  col(string_col)).otherwise(replace_with))
+        column_i += 1
+    return sdf
 
+‘’‘
         # Apply string indexer
         pipeline = Pipeline(stages=[
             StringIndexer(inputCol=string_col, outputCol="IDX_" + string_col)
@@ -62,6 +65,7 @@ def get_sdummies(sdf, dummy_columns, keep_top, replace_with='other'):
     sdf = sdf.drop(*drop_columns)
 
     return sdf
+‘’‘
 
 schema_sdf = StructType([
         StructField('Year', IntegerType(), True),
