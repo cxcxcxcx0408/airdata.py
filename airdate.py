@@ -113,10 +113,10 @@ categories_UC = df1.select("UniqueCarrier").distinct().rdd.flatMap(lambda x: x).
 exprs_UC= [F.when(F.col("UniqueCarrier") == category, 1).otherwise(0).alias(category) for category in categories_UC]
 
 categories_OG = df1.select("Origin").distinct().rdd.flatMap(lambda x: x).collect()
-exprs_OG= [F.when(F.col("Origin") == category, 1).otherwise(0).alias(category) for category in categories_OG]
+exprs_OG= [F.when(F.col("Origin") == category, 1).otherwise(0).alias("OG-"+category) for category in categories_OG]
 
 categories_DS = df1.select("Dest").distinct().rdd.flatMap(lambda x: x).collect()
-exprs_DS= [F.when(F.col("Dest") == category, 1).otherwise(0).alias(category) for category in categories_DS]
+exprs_DS= [F.when(F.col("Dest") == category, 1).otherwise(0).alias("DS-"+category) for category in categories_DS]
 
 df2=df1.select("Delay_feature","Year","DayofMonth","DayofWeek","DepTime","CRSDepTime","CRSArrTime","ActualElapsedTime" ,"Distance",*exprs_UC,*exprs_OG,*exprs_DS)
 df2.show()
