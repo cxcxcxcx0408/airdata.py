@@ -7,7 +7,7 @@ Returns a new DataFrame by adding a column or replacing the existing column that
 #when(condition, value)
 评估条件列表并返回多个可能的结果表达式之一。 如果不调用Column.otherwise()，则不匹配条件返回None。
 
-#collect
+#collect()
 Return a list that contains all of the elements in this RDD.
 
 #Binarizer 将数据二值化
