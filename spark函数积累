@@ -1,5 +1,5 @@
 #alias(alias)
-Returns a new DataFrame with an alias set.
+使用新名称并返回此列
 
 #Binarizer 将数据二值化
 Binarize a column of continuous features given a threshold. 
