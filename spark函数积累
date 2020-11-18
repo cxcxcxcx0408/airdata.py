@@ -1,16 +1,20 @@
-#alias(alias)
+# alias(alias)
 使用新名称并返回此列
 
-#withColumn
+# withColumn
 Returns a new DataFrame by adding a column or replacing the existing column that has the same name.
 
-#when(condition, value)
+# when(condition, value)
 评估条件列表并返回多个可能的结果表达式之一。 如果不调用Column.otherwise()，则不匹配条件返回None。
 
-#collect()
+# flatMap()
+首先向该RDD的所有元素应用函数，然后将结果展平，以返回新的RDD。
+flatMap 与 map 的区别：flatMap 是将所有元素全部展开，而map是做用于所有元素，意思是不给方法不给操作的话就是原样输出。（lambda x:x)
+
+# collect()
 Return a list that contains all of the elements in this RDD.
 
-#Binarizer 将数据二值化
+# Binarizer 将数据二值化
 Binarize a column of continuous features given a threshold. 
 Since 3.0.0, Binarize can map multiple columns at once by setting the inputCols parameter. 
 Note that when both the inputCol and inputCols parameters are set, an Exception will be thrown. The threshold parameter is used for single column usage, and thresholds is for multiple columns.
@@ -19,10 +23,10 @@ df2 = spark.createDataFrame([(0.5, 0.3)], ["values1", "values2"])
 binarizer2 = Binarizer(thresholds=[0.0, 1.0])
 binarizer2.setInputCols(["values1", "values2"]).setOutputCols(["output1", "output2"])
 
-#pyspark matrix with dummy variables
+# pyspark matrix with dummy variables
 https://stackoverflow.com/questions/35879372/pyspark-matrix-with-dummy-variables
 
-#正则表达式
+# 正则表达式
 Spark利用了Java正则表达式的全部功能。其中两个关键功能：regexp_extract和regexp_repalce，这两个函数分别提取值和替换值。
 例子见：https://snaildove.github.io/2019/08/05/Chapter6_Working-with-Different-Types-of-Data(SparkTheDefinitiveGuide)_online/
 
