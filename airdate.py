@@ -106,7 +106,7 @@ binarizer = Binarizer(threshold=0, inputCol="ArrDelay", outputCol="Delay_feature
 air2 = binarizer.transform(air3)
 air2.show()
 
-df=get_sdummies(air2,air2.columns,[1,1,1,1,1,1,1,0.8,1,0.5,0.6,1,1])
+df=get_sdummies(air2,["UniqueCarrier","Origin","Dest"],[0.8,0.5,0.6])
 df1=df.select(["Delay_feature","Year","DayofMonth","DayofWeek","DepTime","CRSDepTime","CRSArrTime","UniqueCarrier","ActualElapsedTime","Origin","Dest","Distance"])
 
 
