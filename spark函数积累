@@ -31,3 +31,10 @@ Spark利用了Java正则表达式的全部功能。其中两个关键功能：re
 例子见：https://snaildove.github.io/2019/08/05/Chapter6_Working-with-Different-Types-of-Data(SparkTheDefinitiveGuide)_online/
 
 如果想用其他字符替换给定的字符，Spark还提供了translation函数来替换这些值。但这是在字符级别完成的。
+
+# 窗口函数（Window function）
+窗口可以理解为记录集合，窗口函数就是在满足某种条件的记录集合上执行的特殊函数。
+window_function (expression) OVER (
+   [ PARTITION BY part_list ]
+   [ ORDER BY order_list ]
+   [ { ROWS | RANGE } BETWEEN frame_start AND frame_end ] )
