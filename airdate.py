@@ -123,4 +123,5 @@ categories_DS = df1.select("Dest").distinct().rdd.flatMap(lambda x: x).collect()
 exprs_DS= [F.when(F.col("Dest") == category, 1).otherwise(0).alias("DS-"+category) for category in categories_DS]
 
 df2=df1.select("Delay_feature","Year","DayofMonth","DayofWeek","DepTime","CRSDepTime","CRSArrTime","ActualElapsedTime" ,"Distance",*exprs_UC,*exprs_OG,*exprs_DS)
-df2.show()
+df3=df2.drop("other","OG-other","DS-other")
+df3.show()
