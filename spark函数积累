@@ -38,3 +38,6 @@ window_function (expression) OVER (
    [ PARTITION BY part_list ]
    [ ORDER BY order_list ]
    [ { ROWS | RANGE } BETWEEN frame_start AND frame_end ] )
+
+### pyspark.ml.feature.VectorAssembler
+A feature transformer that merges multiple columns into a vector column.
