@@ -42,5 +42,5 @@ window_function (expression) OVER (
 ### pyspark.ml.feature.VectorAssembler
 A feature transformer that merges multiple columns into a vector column.
 
-###randomSplit(weights, seed=None)
+### randomSplit(weights, seed=None)
 Randomly splits this DataFrame with the provided weights.
