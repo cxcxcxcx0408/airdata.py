@@ -120,8 +120,9 @@ assembler =VectorAssembler(inputCols=["Year","DayofMonth","DayofWeek","DepTime",
 df3=assembler.transform(air_DS)
 df3=df3.withColumnRenamed("Delay_feature","label")
 df4=df3.select(["label","features"])
+trainData,testData = df4.randomSplit([0.8,0.2],24)
 lr = LogisticRegression(maxIter=10, regParam=0.01)
-model1=lr.fit(df4)
+model1=lr.fit(trainData)
 # We may alternatively specify parameters using a Python dictionary as a paramMap
 paramMap = {lr.maxIter: 20}
 paramMap[lr.maxIter] = 30  # Specify 1 Param, overwriting the original maxIter.
@@ -134,9 +135,9 @@ paramMapCombined.update(paramMap2)
 
 # Now learn a new model using the paramMapCombined parameters.
 # paramMapCombined overrides all parameters set earlier via lr.set* methods.
-model2 = lr.fit(df3, paramMapCombined)
+model2 = lr.fit(trainData, paramMapCombined)
 
-prediction = model2.transform(df4)
+prediction = model2.transform(testData)
 result = prediction.select("features", "label", "myProbability", "prediction") \
     .collect()
 
