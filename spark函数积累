@@ -44,3 +44,6 @@ A feature transformer that merges multiple columns into a vector column.
 
 ### randomSplit(weights, seed=None)
 Randomly splits this DataFrame with the provided weights.
+
+### StringIndexer
+StringIndexer是指把一组字符型标签编码成一组标签索引，索引的范围为0到标签数量，索引构建的顺序为标签的频率，优先编码频率较大的标签，所以出现频率最高的标签为0号。如果输入的是数值型的，我们会把它转化成字符型，然后再对其进行编码。
