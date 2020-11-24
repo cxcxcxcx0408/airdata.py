@@ -47,3 +47,10 @@ Randomly splits this DataFrame with the provided weights.
 
 ### StringIndexer
 StringIndexer是指把一组字符型标签编码成一组标签索引，索引的范围为0到标签数量，索引构建的顺序为标签的频率，优先编码频率较大的标签，所以出现频率最高的标签为0号。如果输入的是数值型的，我们会把它转化成字符型，然后再对其进行编码。
+
+### LogisticRegression
+pyspark.ml.classification.LogisticRegression(featuresCol='features', labelCol='label', predictionCol='prediction', maxIter=100, regParam=0.0, elasticNetParam=0.0, tol=1e-06, fitIntercept=True, threshold=0.5, thresholds=None, probabilityCol='probability', rawPredictionCol='rawPrediction', standardization=True, weightCol=None, aggregationDepth=2, family='auto', lowerBoundsOnCoefficients=None, upperBoundsOnCoefficients=None, lowerBoundsOnIntercepts=None, upperBoundsOnIntercepts=None)
+maxIter:类型：整数型。含义：最多迭代次数（>=0）。
+regParam:类型：双精度型。含义：正则化参数（>=0）。
+predictionCol:类型：字符串型。含义：预测结果列名。
+probabilityCol:类型：字符串型。含义：用以预测类别条件概率的列名。
